@@ -1,0 +1,86 @@
+# Comprehensive Prompt for Building Crescendo a Piano-Focused Interactive Learning Platform with AI
+## www.practicecrescendo.com
+
+I'm building an interactive piano learning platform with SvelteKit that provides real-time feedback on piano performance with AI-powered analysis and coaching. I need detailed technical guidance on implementing each component of this system. Here's my planned tech stack and features:
+
+## Tech Stack
+- SvelteKit with TypeScript for frontend framework
+- Supabase for authentication, database, and blob storage
+- Drizzle ORM for type-safe database queries
+- Tone.js for audio processing and piano sound synthesis
+- WebAssembly with Rust for performance-intensive audio analysis
+- Web Audio API for capturing and processing piano audio input
+- Web MIDI API for direct digital piano connectivity
+- VexFlow (or alternative) for dynamic sheet music rendering
+- IndexedDB for offline practice functionality
+- TailwindCSS: For responsive, utility-first styling
+- Skeleton UI: Component library for consistent design language
+- Lucide Icons: Modern iconography system
+- Bun: Package Manager
+
+## Core Piano-Specific Features
+
+1. **Piano-Optimized Audio Analysis Engine**
+   - Piano-specific pitch detection accounting for harmonics and overtones
+   - Rhythm accuracy measurement for piano technique
+   - Fingering analysis based on note patterns
+   - Pedal usage detection and feedback
+
+2. **Interactive Piano Score Display**
+   - Dynamic rendering of piano sheet music with proper piano notation
+   - Hand position guidance overlays
+   - Fingering suggestions on the notation
+   - Visual feedback for correct/incorrect notes with piano-specific considerations
+
+3. **Piano Practice Tools**
+   - Recording and playback of piano performances
+   - Variable speed practice without pitch changes
+   - Hands separate practice mode
+   - Metronome with visual cues tailored for piano music
+
+4. **Personalized Progress Tracking**
+   - Piano technique metrics (articulation, dynamics, pedaling)
+   - Progress graphs showing improvement in different skill areas
+   - Heatmaps of challenging passages
+
+## AI Integration Components
+
+1. **AI Practice Recommendations**
+   - AI system that analyzes practice patterns and suggests focused exercises
+   - Personalized practice scheduling based on performance history
+   - Implementation approach for the recommendation algorithm
+
+2. **AI Performance Analysis**
+   - Advanced analysis of musical expression beyond notes and rhythm
+   - Feedback on dynamics, articulation, phrasing specific to piano playing
+   - Assessment of pedal technique and usage
+
+3. **AI Exercise Generation**
+   - Algorithmic creation of custom piano exercises targeting specific weaknesses
+   - Generating variations of difficult passages at progressive difficulty levels
+   - Piano-specific technical exercises for issues like finger independence
+
+4. **AI Style Coach**
+   - Analysis of stylistic elements in different piano genres (classical, jazz, etc.)
+   - Providing style-specific feedback on interpretation
+   - Comparison with reference performances by professional pianists
+
+## Technical Challenges I Need Help With
+
+1. What's the most efficient architecture for processing piano audio in real-time, accounting for the complex harmonic structure of piano sounds?
+
+2. How should I structure the Rust/WebAssembly components for piano-specific audio analysis? Please provide example code and implementation approach.
+
+3. What's the best approach for implementing the AI recommendation system? Should I use an external API service or implement simpler models directly?
+
+4. How can I effectively detect and analyze piano-specific techniques like pedaling and articulation from audio input?
+
+5. What's the best way to synchronize MIDI input from digital pianos with the sheet music display?
+
+6. How should I design the database schema using Drizzle ORM to effectively track piano-specific progress metrics?
+
+7. What ML models would be most appropriate for the style coaching feature, and how can they be implemented or integrated?
+
+8. How can I optimize audio processing for different piano types (upright, grand, digital) and recording environments?
+
+Please include code examples where relevant, particularly for the audio processing pipeline, AI integration points, WebAssembly integration, and database schema design. I'd like to focus first on building a minimal viable prototype that demonstrates the core piano performance analysis and AI-enhanced feedback functionality.
