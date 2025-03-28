@@ -1,86 +1,165 @@
-# Comprehensive Prompt for Building Crescendo a Piano-Focused Interactive Learning Platform with AI
-## www.practicecrescendo.com
+# Crescendo Piano Platform Context Document
 
-I'm building an interactive piano learning platform with SvelteKit that provides real-time feedback on piano performance with AI-powered analysis and coaching. I need detailed technical guidance on implementing each component of this system. Here's my planned tech stack and features:
+## Project Overview
 
-## Tech Stack
-- SvelteKit with TypeScript for frontend framework
-- Supabase for authentication, database, and blob storage
-- Drizzle ORM for type-safe database queries
-- Tone.js for audio processing and piano sound synthesis
-- WebAssembly with Rust for performance-intensive audio analysis
-- Web Audio API for capturing and processing piano audio input
-- Web MIDI API for direct digital piano connectivity
-- VexFlow (or alternative) for dynamic sheet music rendering
-- IndexedDB for offline practice functionality
-- TailwindCSS: For responsive, utility-first styling
-- Skeleton UI: Component library for consistent design language
-- Lucide Icons: Modern iconography system
-- Bun: Package Manager
+Crescendo (www.practicecrescendo.com) is a web-based platform designed to help pianists improve their skills through intelligent analysis of practice recordings. Unlike real-time feedback systems, Crescendo focuses on detailed post-practice analysis using AI to provide personalized coaching.
 
-## Core Piano-Specific Features
+### Core Vision
+To create an accessible platform that helps pianists of all levels improve by providing detailed, AI-powered analysis of their practice recordings with specific, actionable feedback tied to their sheet music.
 
-1. **Piano-Optimized Audio Analysis Engine**
-   - Piano-specific pitch detection accounting for harmonics and overtones
-   - Rhythm accuracy measurement for piano technique
-   - Fingering analysis based on note patterns
-   - Pedal usage detection and feedback
+### Target Users
+- Piano students (beginner to advanced)
+- Piano teachers who want to provide better guidance between lessons
+- Self-taught pianists seeking professional-quality feedback
+- Music schools and conservatories
 
-2. **Interactive Piano Score Display**
-   - Dynamic rendering of piano sheet music with proper piano notation
-   - Hand position guidance overlays
-   - Fingering suggestions on the notation
-   - Visual feedback for correct/incorrect notes with piano-specific considerations
+## Technology Stack
 
-3. **Piano Practice Tools**
-   - Recording and playback of piano performances
-   - Variable speed practice without pitch changes
-   - Hands separate practice mode
-   - Metronome with visual cues tailored for piano music
+### Frontend
+- **Framework**: Tanstack Start with React
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **State Management**: Zustand
+- **Data Fetching**: TanStack Query
+- **Routing**: TanStack Router
+- **UI Components**: TanStack Form and Table
 
-4. **Personalized Progress Tracking**
-   - Piano technique metrics (articulation, dynamics, pedaling)
-   - Progress graphs showing improvement in different skill areas
-   - Heatmaps of challenging passages
+### Styling
+- **CSS Framework**: Tailwind CSS
+- **Component Library**: DaisyUI
+- **Complex UI Elements**: Radix UI Primitives
+- **Icons**: Lucide
 
-## AI Integration Components
+### Audio Processing
+- **Core API**: Web Audio API
+- **Visualization**: Wavesurfer.js
+- **Optional Client Processing**: FFmpeg.wasm
 
-1. **AI Practice Recommendations**
-   - AI system that analyzes practice patterns and suggests focused exercises
-   - Personalized practice scheduling based on performance history
-   - Implementation approach for the recommendation algorithm
+### Backend & Storage
+- **Primary Backend**: Supabase
+  - Authentication
+  - PostgreSQL database
+  - Storage for recordings and sheet music
+  - Row-level security
+  - Realtime features (optional)
+  - Vector database (pgvector) for music pattern analysis
+- **Supplementary Backend**: Node.js with Hono.js for specialized processing
 
-2. **AI Performance Analysis**
-   - Advanced analysis of musical expression beyond notes and rhythm
-   - Feedback on dynamics, articulation, phrasing specific to piano playing
-   - Assessment of pedal technique and usage
+### AI Analysis & Coaching
+- **Primary AI**: Anthropic Claude API for coaching and feedback
+- **Lightweight Analysis**: TensorFlow.js for browser-based processing
+- **Advanced Audio Analysis**: Python backend with Librosa (server-side)
 
-3. **AI Exercise Generation**
-   - Algorithmic creation of custom piano exercises targeting specific weaknesses
-   - Generating variations of difficult passages at progressive difficulty levels
-   - Piano-specific technical exercises for issues like finger independence
+## MVP Features
 
-4. **AI Style Coach**
-   - Analysis of stylistic elements in different piano genres (classical, jazz, etc.)
-   - Providing style-specific feedback on interpretation
-   - Comparison with reference performances by professional pianists
+### 1. User Management
+- User registration and authentication
+- Basic profile with skill level and preferences
+- Practice history tracking
 
-## Technical Challenges I Need Help With
+### 2. Recording System
+- Browser-based audio recording
+- Audio file upload capability
+- Basic audio playback with visualization
+- Recording organization and labeling
 
-1. What's the most efficient architecture for processing piano audio in real-time, accounting for the complex harmonic structure of piano sounds?
+### 3. Sheet Music Management
+- Upload and storage of sheet music (PDF)
+- Basic sheet music viewer
+- Organization by composer/difficulty/collection
+- Association between recordings and sheet music
 
-2. How should I structure the Rust/WebAssembly components for piano-specific audio analysis? Please provide example code and implementation approach.
+### 4. Basic Analysis Pipeline
+- Note detection (pitch identification)
+- Rhythm and timing analysis
+- Basic dynamics assessment
+- Comparison with sheet music (if available)
 
-3. What's the best approach for implementing the AI recommendation system? Should I use an external API service or implement simpler models directly?
+### 5. AI Coaching
+- Performance summaries
+- Identification of strengths and areas for improvement
+- Specific practice recommendations
+- Progress tracking across recordings
 
-4. How can I effectively detect and analyze piano-specific techniques like pedaling and articulation from audio input?
+### 6. User Interface
+- Dashboard with practice history
+- Recording management page
+- Analysis results view with annotations
+- Sheet music library
 
-5. What's the best way to synchronize MIDI input from digital pianos with the sheet music display?
+## Future Development Plans
 
-6. How should I design the database schema using Drizzle ORM to effectively track piano-specific progress metrics?
+### Phase 2: Enhanced Analysis
+- Advanced musical expression analysis
+- Style-specific feedback (classical, jazz, etc.)
+- Comparative analysis between recordings
+- Detailed technical assessment (articulation, pedaling)
 
-7. What ML models would be most appropriate for the style coaching feature, and how can they be implemented or integrated?
+### Phase 3: Expanded Features
+- Teacher-student collaboration tools
+- Community features and shared recordings
+- Custom exercise generation based on weaknesses
+- Performance comparison with professional recordings
+- Mobile application
 
-8. How can I optimize audio processing for different piano types (upright, grand, digital) and recording environments?
+## Technical Implementation Details
 
-Please include code examples where relevant, particularly for the audio processing pipeline, AI integration points, WebAssembly integration, and database schema design. I'd like to focus first on building a minimal viable prototype that demonstrates the core piano performance analysis and AI-enhanced feedback functionality.
+### Database Schema
+- Users table (id, email, skill_level, preferences)
+- Pieces table (id, title, composer, difficulty, sheet_music_url)
+- Recordings table (id, user_id, piece_id, recording_url, duration, created_at)
+- Analysis_results table (id, recording_id, results_json, created_at)
+
+### Authentication Flow
+- Supabase Authentication with email/password and OAuth options
+- Role-based permissions (student, teacher, admin)
+
+### Recording Processing Pipeline
+1. Capture audio in browser or upload file
+2. Store in Supabase storage
+3. Trigger analysis with serverless function
+4. Process audio for feature extraction
+5. Generate analysis results and store
+6. Request AI coaching based on analysis
+7. Present results to user with annotations
+
+### Analysis Metrics
+- Note accuracy (correct notes played)
+- Timing precision (rhythmic accuracy)
+- Dynamic range and control
+- Tempo consistency and variations
+- Articulation (legato, staccato, etc.)
+- Musical expression markers
+
+## Technical Constraints & Considerations
+
+### Audio Quality
+- Browser recording has limitations compared to dedicated software
+- Different piano types (upright, grand, digital) produce different acoustic signatures
+- Recording environment variability affects analysis accuracy
+
+### Performance Considerations
+- Heavy audio processing should happen server-side
+- Client-side processing limited to essential real-time features
+- Consider bandwidth limitations for recording uploads
+
+### AI Integration
+- Structure prompts carefully for consistent, helpful feedback
+- Include sufficient context about the piece and player
+- Balance between technical feedback and musical expression coaching
+- Avoid generic feedback by providing specific performance data
+
+### Accessibility
+- Support for screen readers
+- Keyboard navigation for all features
+- Color contrast considerations
+- Alternative representations of audio/visual feedback
+
+## Development Priorities
+
+1. Core recording and playback functionality
+2. Sheet music management system
+3. Basic audio analysis pipeline
+4. AI feedback integration
+5. User dashboard and progress tracking
+6. Advanced analysis features
