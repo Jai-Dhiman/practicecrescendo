@@ -38,7 +38,9 @@ Create an accessible platform providing detailed, AI-powered analysis of piano p
 
 ### Backend & Storage
 - **Primary**: Supabase (Auth, PostgreSQL, Storage, Row-level security, Vector database)
+- **ORM**: Drizzle
 - **Supplementary**: Node.js with Hono.js for specialized processing
+- **App Monitering**: Sentry.io
 
 ### AI Analysis & Coaching
 - **Primary AI**: Anthropic Claude API
