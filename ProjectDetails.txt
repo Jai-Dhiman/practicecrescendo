@@ -23,6 +23,7 @@ To create an accessible platform that helps pianists of all levels improve by pr
 - **Data Fetching**: TanStack Query
 - **Routing**: TanStack Router
 - **UI Components**: TanStack Form and Table
+- **Bun**: Fast Package Management
 
 ### Styling
 - **CSS Framework**: Tailwind CSS
