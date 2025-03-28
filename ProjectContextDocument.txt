@@ -2,9 +2,12 @@
 
 ## Project Overview
 
-Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching tied to sheet music.
+Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching tied to sheet music. 
+
+By leveraging the efficiency of SvelteKit for the frontend user experience and powerful Python/Rust processing on the backend, Crescendo aims to provide detailed insights that were previously only available through in-person instruction.
 
 ### Core Vision
+
 Create an accessible platform providing detailed, AI-powered analysis of piano practice recordings with actionable feedback linked to sheet music.
 
 ### Target Users
@@ -15,141 +18,57 @@ Create an accessible platform providing detailed, AI-powered analysis of piano p
 
 ## Technology Stack
 
-### Frontend
-- **Framework**: Tanstack Start with React
-- **Language**: TypeScript
-- **Build Tool**: Vite
-- **State Management**: Zustand
-- **Data Fetching**: TanStack Query
-- **Routing**: TanStack Router
-- **UI Components**: TanStack Form and Table
-- **Package Management**: Bun
+### Frontend (SvelteKit)
+- **Framework**: SvelteKit for end-to-end web application development
+- **Language**: TypeScript for type safety
+- **State Management**: Built-in Svelte stores
+- **UI Components**: Svelte components with scoped CSS
+- **Styling**: Tailwind CSS with DaisyUI and Lucide icons
+- **Audio Visualization**: Wavesurfer.js integrated into Svelte components
+- **Authentication**: Supabase Auth for SvelteKit
 
-### Styling
-- **CSS Framework**: Tailwind CSS
-- **Component Library**: DaisyUI
-- **UI Primitives**: Radix UI
-- **Icons**: Lucide
+### Backend (Separate API)
+- **API Layer**: Python FastAPI or Rust Axum
+- **Audio Processing**: Librosa (Python) or Symphonia (Rust)
+- **ML Integration**: TensorFlow/PyTorch for advanced audio analysis
+- **AI Coaching**: Anthropic Claude API
 
-### Audio Processing
-- **Core API**: Web Audio API
-- **Visualization**: Wavesurfer.js
-- **Optional Processing**: FFmpeg.wasm
+### Data Storage
+- **Primary Database**: Supabase PostgreSQL
+- **File Storage**: Supabase Storage for recordings and sheet music
+- **Vector Storage**: Supabase Vector for similarity searches on musical patterns
+- **ORM**: Drizzle for Query Layer
+- **Zod**: Validations
 
-### Backend & Storage
-- **Primary**: Supabase (Auth, PostgreSQL, Storage, Row-level security, Vector database)
-- **ORM**: Drizzle
-- **Supplementary**: Node.js with Hono.js for specialized processing
-- **App Monitering**: Sentry.io
-
-### AI Analysis & Coaching
-- **Primary AI**: Anthropic Claude API
-- **Lightweight Analysis**: TensorFlow.js
-- **Advanced Audio Analysis**: Python with Librosa (server-side)
+### DevOps
+- **Hosting**: Railway Cloud Deployment
+- **Monitoring**: Sentry.io for error tracking and performance
 
 ## MVP Features
 
-### 1. Sheet Music Management
-- Upload and storage of sheet music (PDF)
-- Sheet music viewer
-- Organization by composer/difficulty/collection
-- Annotations capability
-
-### 2. User Management
-- Registration and authentication
-- Basic profile with skill level
+### 1. User & Authentication System
+- Simple sign-up/login flow
+- Basic user profiles
 - Practice history tracking
 
-### 3. Audio Upload System
-- Audio file upload capability
-- Basic audio playback with visualization
-- Recording organization and labeling
-- Association between uploads and sheet music
+### 2. Sheet Music Management
+- Upload and view PDF sheet music
+- Basic organization (composer, difficulty)
+- Sheet music viewer with fixed annotations
 
-### 4. AI Analysis & Coaching
-- Note detection and rhythm analysis
-- Performance summaries
-- Identification of strengths and areas for improvement
-- Specific practice recommendations
-- Progress tracking across recordings
+### 3. Recording Management
+- Audio recording upload
+- Basic playback with waveform visualization
+- Organization by associated sheet music
 
-### 5. User Interface
-- Dashboard with practice history
-- Audio management page
-- Analysis results view with annotations
-- Sheet music library
+### 4. Analysis Pipeline
+- Backend API for audio processing
+- Note detection and basic timing analysis
+- Performance feedback generation via Claude API
+- Visualization of results with sheet music references
 
-## Feature/Domain Based Structure
-- Always follow Tanstack, React, annd Typescript best practices
-- Code should be organized by feature/domain rather than by type. Each feature directory should contain everything related to that feature, including components, API calls, and feature-specific hooks.
-- For API routes, follow TanStack Start's convention of placing them in your routes directory with a prefix of 'api'.
-- React Query Integration: Create custom query hooks that encapsulate data fetching logic
-- Components should be broken down into smaller, reusable pieces to improve maintainability
-- Keep your route structure clean and focused on user workflows. Each route component should be responsible for composing feature components rather than implementing business logic.
-
-## Technical Implementation Details
-
-### Database Schema
-- Users table (id, email, skill_level, preferences)
-- Pieces table (id, title, composer, difficulty, sheet_music_url)
-- Recordings table (id, user_id, piece_id, recording_url, duration, created_at)
-- Analysis_results table (id, recording_id, results_json, created_at)
-
-### Audio Processing Pipeline
-1. Upload audio file
-2. Store in Supabase storage
-3. Trigger analysis with serverless function
-4. Process audio for feature extraction
-5. Generate analysis results
-6. Request AI coaching based on analysis
-7. Present results with annotations
-
-### Analysis Metrics
-- Note accuracy
-- Timing precision
-- Dynamic range
-- Tempo consistency
-- Articulation
-- Musical expression
-
-## Future Development Plans
-
-### Phase 1: In-Browser Recording
-- Browser-based audio recording system
-- Real-time audio visualization
-- Recording quality optimization
-- Simplified recording workflow
-
-### Phase 2: Enhanced Analysis
-- Advanced expression analysis
-- Style-specific feedback
-- Comparative analysis between recordings
-- Detailed technical assessment
-
-### Phase 3: Expanded Features
-- Teacher-student collaboration tools
-- Community features
-- Custom exercise generation
-- Professional recording comparisons
-- Mobile application
-
-## Technical Constraints & Considerations
-
-### Audio Quality
-- Different piano types produce different acoustic signatures
-- Recording environment affects analysis accuracy
-
-### Performance Considerations
-- Server-side processing for heavy analysis
-- Bandwidth management for uploads
-
-### AI Integration
-- Structured prompts for consistent feedback
-- Include context about piece and player
-- Balance technical and musical expression coaching
-
-### Accessibility
-- Screen reader support
-- Keyboard navigation
-- Color contrast considerations
-- Alternative feedback representations
+### 5. Minimalist UI
+- Dashboard showing practice history
+- Sheet music library view
+- Recording management interface
+- Analysis results page with actionable feedback
