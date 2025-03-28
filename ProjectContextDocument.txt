@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching tied to sheet music. 
+Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching with sheet music handling. 
 
-By leveraging the efficiency of SvelteKit for the frontend user experience and powerful Python/Rust processing on the backend, Crescendo aims to provide detailed insights that were previously only available through in-person instruction.
+By leveraging the efficiency of SvelteKit for the frontend user experience and powerful Rust processing on the backend, Crescendo aims to provide detailed insights that were previously only available through in-person instruction.
 
 ### Core Vision
 
-Create an accessible platform providing detailed, AI-powered analysis of piano practice recordings with actionable feedback linked to sheet music.
+Create an accessible platform providing detailed, AI-powered analysis of piano practice recordings with actionable feedback.
 
 ### Target Users
 - Piano students (all levels)
@@ -28,9 +28,9 @@ Create an accessible platform providing detailed, AI-powered analysis of piano p
 - **Authentication**: Supabase Auth for SvelteKit
 
 ### Backend (Separate API)
-- **API Layer**: Python FastAPI or Rust Axum
-- **Audio Processing**: Librosa (Python) or Symphonia (Rust)
-- **ML Integration**: TensorFlow/PyTorch for advanced audio analysis
+- **API Layer**: Rust Axum
+- **Audio Processing**: Symphonia (Rust)
+- **ML Integration**: TensorFlow for advanced audio analysis
 - **AI Coaching**: Anthropic Claude API
 
 ### Data Storage
