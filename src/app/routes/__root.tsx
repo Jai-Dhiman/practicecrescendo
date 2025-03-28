@@ -1,5 +1,8 @@
+// Update src/app/routes/__root.tsx
 import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { queryClient } from '~/lib/queryClient'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,19 +18,21 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <RootDocument>
-      <div className="min-h-screen bg-base-100">
-        <header className="navbar bg-base-200">
-          <div className="navbar-start">
-            <div className="text-xl font-bold">Crescendo Piano</div>
-          </div>
-        </header>
-        <main className="container mx-auto p-4">
-          <Outlet />
-        </main>
-        <footer className="footer p-4 bg-base-200 text-base-content">
-          <div>© {new Date().getFullYear()} Crescendo Piano Platform</div>
-        </footer>
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="min-h-screen bg-base-100">
+          <header className="navbar bg-base-200">
+            <div className="navbar-start">
+              <div className="text-xl font-bold">Crescendo Piano</div>
+            </div>
+          </header>
+          <main className="container mx-auto p-4">
+            <Outlet />
+          </main>
+          <footer className="footer p-4 bg-base-200 text-base-content">
+            <div>© {new Date().getFullYear()} Crescendo Piano Platform</div>
+          </footer>
+        </div>
+      </QueryClientProvider>
     </RootDocument>
   )
 }
