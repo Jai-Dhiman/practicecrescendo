@@ -1,6 +1,6 @@
 // src/app/routes/sheet-music/index.tsx
 import { createFileRoute } from '@tanstack/react-router'
-import { usePieces } from '~/hooks/usePieces'
+import { usePieces } from './usePieces'
 import { Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/sheet-music/')({
