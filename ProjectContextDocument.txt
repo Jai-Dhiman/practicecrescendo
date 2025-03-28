@@ -29,7 +29,7 @@ Create an accessible platform providing detailed, AI-powered analysis of piano p
 
 ### Backend (Separate API)
 - **API Layer**: Rust Axum
-- **Audio Processing**: Symphonia (Rust)
+- **Audio Processing**: Symphonia
 - **ML Integration**: TensorFlow for advanced audio analysis
 - **AI Coaching**: Anthropic Claude API
 
