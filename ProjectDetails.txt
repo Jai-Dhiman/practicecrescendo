@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-Crescendo (www.practicecrescendo.com) is a web-based platform designed to help pianists improve their skills through intelligent analysis of practice recordings. Unlike real-time feedback systems, Crescendo focuses on detailed post-practice analysis using AI to provide personalized coaching.
+Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching tied to sheet music.
 
 ### Core Vision
-To create an accessible platform that helps pianists of all levels improve by providing detailed, AI-powered analysis of their practice recordings with specific, actionable feedback tied to their sheet music.
+Create an accessible platform providing detailed, AI-powered analysis of piano practice recordings with actionable feedback linked to sheet music.
 
 ### Target Users
-- Piano students (beginner to advanced)
-- Piano teachers who want to provide better guidance between lessons
-- Self-taught pianists seeking professional-quality feedback
+- Piano students (all levels)
+- Piano teachers
+- Self-taught pianists
 - Music schools and conservatories
 
 ## Technology Stack
@@ -23,85 +23,59 @@ To create an accessible platform that helps pianists of all levels improve by pr
 - **Data Fetching**: TanStack Query
 - **Routing**: TanStack Router
 - **UI Components**: TanStack Form and Table
-- **Bun**: Fast Package Management
+- **Package Management**: Bun
 
 ### Styling
 - **CSS Framework**: Tailwind CSS
 - **Component Library**: DaisyUI
-- **Complex UI Elements**: Radix UI Primitives
+- **UI Primitives**: Radix UI
 - **Icons**: Lucide
 
 ### Audio Processing
 - **Core API**: Web Audio API
 - **Visualization**: Wavesurfer.js
-- **Optional Client Processing**: FFmpeg.wasm
+- **Optional Processing**: FFmpeg.wasm
 
 ### Backend & Storage
-- **Primary Backend**: Supabase
-  - Authentication
-  - PostgreSQL database
-  - Storage for recordings and sheet music
-  - Row-level security
-  - Realtime features (optional)
-  - Vector database (pgvector) for music pattern analysis
-- **Supplementary Backend**: Node.js with Hono.js for specialized processing
+- **Primary**: Supabase (Auth, PostgreSQL, Storage, Row-level security, Vector database)
+- **Supplementary**: Node.js with Hono.js for specialized processing
 
 ### AI Analysis & Coaching
-- **Primary AI**: Anthropic Claude API for coaching and feedback
-- **Lightweight Analysis**: TensorFlow.js for browser-based processing
-- **Advanced Audio Analysis**: Python backend with Librosa (server-side)
+- **Primary AI**: Anthropic Claude API
+- **Lightweight Analysis**: TensorFlow.js
+- **Advanced Audio Analysis**: Python with Librosa (server-side)
 
 ## MVP Features
 
-### 1. User Management
-- User registration and authentication
-- Basic profile with skill level and preferences
+### 1. Sheet Music Management
+- Upload and storage of sheet music (PDF)
+- Sheet music viewer
+- Organization by composer/difficulty/collection
+- Annotations capability
+
+### 2. User Management
+- Registration and authentication
+- Basic profile with skill level
 - Practice history tracking
 
-### 2. Recording System
-- Browser-based audio recording
+### 3. Audio Upload System
 - Audio file upload capability
 - Basic audio playback with visualization
 - Recording organization and labeling
+- Association between uploads and sheet music
 
-### 3. Sheet Music Management
-- Upload and storage of sheet music (PDF)
-- Basic sheet music viewer
-- Organization by composer/difficulty/collection
-- Association between recordings and sheet music
-
-### 4. Basic Analysis Pipeline
-- Note detection (pitch identification)
-- Rhythm and timing analysis
-- Basic dynamics assessment
-- Comparison with sheet music (if available)
-
-### 5. AI Coaching
+### 4. AI Analysis & Coaching
+- Note detection and rhythm analysis
 - Performance summaries
 - Identification of strengths and areas for improvement
 - Specific practice recommendations
 - Progress tracking across recordings
 
-### 6. User Interface
+### 5. User Interface
 - Dashboard with practice history
-- Recording management page
+- Audio management page
 - Analysis results view with annotations
 - Sheet music library
-
-## Future Development Plans
-
-### Phase 2: Enhanced Analysis
-- Advanced musical expression analysis
-- Style-specific feedback (classical, jazz, etc.)
-- Comparative analysis between recordings
-- Detailed technical assessment (articulation, pedaling)
-
-### Phase 3: Expanded Features
-- Teacher-student collaboration tools
-- Community features and shared recordings
-- Custom exercise generation based on weaknesses
-- Performance comparison with professional recordings
-- Mobile application
 
 ## Technical Implementation Details
 
@@ -111,56 +85,61 @@ To create an accessible platform that helps pianists of all levels improve by pr
 - Recordings table (id, user_id, piece_id, recording_url, duration, created_at)
 - Analysis_results table (id, recording_id, results_json, created_at)
 
-### Authentication Flow
-- Supabase Authentication with email/password and OAuth options
-- Role-based permissions (student, teacher, admin)
-
-### Recording Processing Pipeline
-1. Capture audio in browser or upload file
+### Audio Processing Pipeline
+1. Upload audio file
 2. Store in Supabase storage
 3. Trigger analysis with serverless function
 4. Process audio for feature extraction
-5. Generate analysis results and store
+5. Generate analysis results
 6. Request AI coaching based on analysis
-7. Present results to user with annotations
+7. Present results with annotations
 
 ### Analysis Metrics
-- Note accuracy (correct notes played)
-- Timing precision (rhythmic accuracy)
-- Dynamic range and control
-- Tempo consistency and variations
-- Articulation (legato, staccato, etc.)
-- Musical expression markers
+- Note accuracy
+- Timing precision
+- Dynamic range
+- Tempo consistency
+- Articulation
+- Musical expression
+
+## Future Development Plans
+
+### Phase 1: In-Browser Recording
+- Browser-based audio recording system
+- Real-time audio visualization
+- Recording quality optimization
+- Simplified recording workflow
+
+### Phase 2: Enhanced Analysis
+- Advanced expression analysis
+- Style-specific feedback
+- Comparative analysis between recordings
+- Detailed technical assessment
+
+### Phase 3: Expanded Features
+- Teacher-student collaboration tools
+- Community features
+- Custom exercise generation
+- Professional recording comparisons
+- Mobile application
 
 ## Technical Constraints & Considerations
 
 ### Audio Quality
-- Browser recording has limitations compared to dedicated software
-- Different piano types (upright, grand, digital) produce different acoustic signatures
-- Recording environment variability affects analysis accuracy
+- Different piano types produce different acoustic signatures
+- Recording environment affects analysis accuracy
 
 ### Performance Considerations
-- Heavy audio processing should happen server-side
-- Client-side processing limited to essential real-time features
-- Consider bandwidth limitations for recording uploads
+- Server-side processing for heavy analysis
+- Bandwidth management for uploads
 
 ### AI Integration
-- Structure prompts carefully for consistent, helpful feedback
-- Include sufficient context about the piece and player
-- Balance between technical feedback and musical expression coaching
-- Avoid generic feedback by providing specific performance data
+- Structured prompts for consistent feedback
+- Include context about piece and player
+- Balance technical and musical expression coaching
 
 ### Accessibility
-- Support for screen readers
-- Keyboard navigation for all features
+- Screen reader support
+- Keyboard navigation
 - Color contrast considerations
-- Alternative representations of audio/visual feedback
-
-## Development Priorities
-
-1. Core recording and playback functionality
-2. Sheet music management system
-3. Basic audio analysis pipeline
-4. AI feedback integration
-5. User dashboard and progress tracking
-6. Advanced analysis features
+- Alternative feedback representations
