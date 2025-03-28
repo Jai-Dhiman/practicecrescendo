@@ -79,6 +79,14 @@ Create an accessible platform providing detailed, AI-powered analysis of piano p
 - Analysis results view with annotations
 - Sheet music library
 
+## Feature/Domain Based Structure
+- Always follow Tanstack, React, annd Typescript best practices
+- Code should be organized by feature/domain rather than by type. Each feature directory should contain everything related to that feature, including components, API calls, and feature-specific hooks.
+- For API routes, follow TanStack Start's convention of placing them in your routes directory with a prefix of 'api'.
+- React Query Integration: Create custom query hooks that encapsulate data fetching logic
+- Components should be broken down into smaller, reusable pieces to improve maintainability
+- Keep your route structure clean and focused on user workflows. Each route component should be responsible for composing feature components rather than implementing business logic.
+
 ## Technical Implementation Details
 
 ### Database Schema
