@@ -3,11 +3,6 @@ const config = {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: ["customlight", "customdark"],
-    defaultTheme: "customlight",
-  },
 };
 
 module.exports = config;

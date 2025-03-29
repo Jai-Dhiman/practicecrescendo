@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tailwindcss/vite": "^4.0.17",
 		"@types/node": "^22.13.14",
 		"dotenv": "^16.4.7",
 		"drizzle-orm": "^0.41.0",
