@@ -1,14 +1,18 @@
-const daisyui = require('daisyui');
+const daisyui = require("daisyui");
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
 
-	theme: {
-		extend: {}
-	},
+  theme: {
+    extend: {},
+  },
 
-	plugins: [daisyui]
+  plugins: [daisyui],
+
+  daisyui: {
+    themes: ["emerald"],
+  },
 };
 
 module.exports = config;
