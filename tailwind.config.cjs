@@ -1,14 +1,12 @@
-const daisyui = require("daisyui");
-
-/** @type {import('tailwindcss').Config}*/
 const config = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [require("daisyui")],
   daisyui: {
-    themes: ["silk"],
+    themes: ["customlight", "customdark"],
+    defaultTheme: "customlight",
   },
 };
 

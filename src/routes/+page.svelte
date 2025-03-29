@@ -1,4 +1,3 @@
-<!-- src/routes/+page.svelte -->
 <script lang="ts">
   import DbHealthCheck from "$lib/components/DbHealthCheck.svelte";
   import { Calendar, Clock, Music, ArrowRight, Book, Mic } from 'lucide-svelte';
