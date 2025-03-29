@@ -12,11 +12,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "useDefineForClassFields": true,
-    "verbatimModuleSyntax": true,
-    "paths": {
-      "$lib": ["./src/lib"],
-      "$lib/*": ["./src/lib/*"]
-    }
+    "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
 }
