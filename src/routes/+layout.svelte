@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    document.documentElement.setAttribute('data-theme', 'jumpingnoodle');
+    document.documentElement.setAttribute('data-theme', 'customlight');
   });
 </script>
 
