@@ -1,6 +1,5 @@
 <script>
 	import { Menu, Home, Book, Mic, BarChart2 } from 'lucide-svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
 	let navs = [
 		{ name: 'Dashboard', link: '/', icon: Home },
@@ -44,7 +43,6 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<ThemeToggle />
 		
 		<button class="btn btn-ghost btn-circle ml-2" aria-label="Notifications">
 			<div class="indicator">
