@@ -1,5 +1,4 @@
 # Crescendo Piano Platform Context Document
-
 ## Project Overview
 
 Crescendo (www.practicecrescendo.com) is a web-based platform helping pianists improve through AI analysis of practice recordings. The platform focuses on post-practice analysis with personalized coaching with sheet music handling. 
